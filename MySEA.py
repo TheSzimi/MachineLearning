@@ -1,3 +1,4 @@
+
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -13,6 +14,9 @@ from strlearn.streams import StreamGenerator
 from strlearn.evaluators import TestThenTrain
 
 class MySEA(StreamingEnsemble):
+    """Algorytm SEA (Streaming Ensemble Algorithm) to metoda uczenia maszynowego stosowana w strumieniach danych, gdzie dane napływają w czasie rzeczywistym. 
+    Głównym celem tego algorytmu jest tworzenie dynamicznego zespołu klasyfikatorów, który potrafi adaptować się do zmian w danych oraz dokonywać klasyfikacji na bieżąco.
+    Algorytm SEA wyróżnia się tym, że usuwa najgorszy klasyfikator z zespołu. Wyróżniającą cechą mojej implementacji jest dodanie preprocessingu. """
     def __init__(self, n_classifiers=10, base_estimator=GaussianNB(), metric=balanced_accuracy_score, base_preprocessing=RandomOverSampler()):
         self.base_preprocessing = base_preprocessing
         self.metric = metric
